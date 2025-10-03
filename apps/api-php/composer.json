@@ -1,0 +1,10 @@
+{
+  "require": {
+    "robmorgan/phinx": "^0.16",
+    "vlucas/phpdotenv": "^5.6"
+  },
+  "scripts": {
+    "migrate": "phinx migrate -e production",
+    "seed": "phinx seed:run -e production"
+  }
+}
