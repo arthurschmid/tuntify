@@ -8,6 +8,7 @@
 <body>
     <main>
         <h1>Tuntify</h1>
+        <a href="{{ route('admin.home') }}">Verwaltung</a>
     </main>
 </body>
 </html>

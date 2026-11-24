@@ -16,4 +16,23 @@ composer check-platform-reqs
 php artisan test
 ```
 
-Das Verzeichnis `public/` ist der Webroot. Die fachlichen Migrationen folgen in MIGRATIONS. [Datenmodell v1](../../docs/data-model.md)
+Das Verzeichnis `public/` ist der Webroot. Die fachlichen Migrationen sind enthalten. Gegen eine lokale Entwicklungsdatenbank ausführen:
+
+```bash
+php artisan migrate
+php artisan db:seed --class=DemoSeeder
+```
+
+Der optionale DemoSeeder legt synthetische Daten ohne Login an und ist auf lokale und Testumgebungen begrenzt. [Datenmodell v1](../../docs/data-model.md)
+
+## Admin-Zugang
+
+Nach der Migration das erste Admin-Konto im Terminal anlegen:
+
+```bash
+php artisan tuntify:first-admin
+```
+
+Der Befehl fragt Shortname, Login-E-Mail und Passwort ab. Das Passwort wird verdeckt eingegeben. Danach ist der Login unter `/admin/login` verfügbar. „Angemeldet bleiben“ verwendet einen 30 Tage gültigen Laravel-Cookie. „Abmelden“ beendet die Sitzung und widerruft den Remember-Token. Auf einem HTTPS-Zielserver `SESSION_SECURE_COOKIE=true` setzen.
+
+Nach dem Login öffnet `/admin` die Personenverwaltung. Die Suche filtert nach Shortname oder Alias. Für neue Personen genügt ein Shortname. Die Bearbeitungsansicht enthält die Persona-Felder, Briefsprache und den aktuellen Kontaktstand.

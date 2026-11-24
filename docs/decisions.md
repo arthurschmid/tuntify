@@ -11,6 +11,8 @@ Das fachliche Datenmodell v1 ist zur Umsetzung freigegeben.
 | P1USER | Persona und optionale Anmeldung liegen direkt in `users`. `user_roles` verweist direkt auf USER. Der optionale Kontaktdatensatz bleibt separat. |
 | APPBASE | Laravel 13 mit Composer-Lockdatei, PHP 8.4 und MariaDB 11.8. Der Plesk-Zielbetrieb ist gesondert zu prüfen. |
 
+**AUTH** führt in Phase 1 Passwort-Login mit optionalem „Angemeldet bleiben“ für 30 Tage ein. Zwei-Faktor-Authentifizierung ist eine spätere Erweiterung.
+
 ## Umsetzungsdetails
 
 Vorgeschlagen sind ein ASCII-Alphabet aus Buchstaben, Ziffern, Bindestrichen und Unterstrichen, eine Importvorschau mit ausdrücklicher Konfliktauflösung und ein Postexport mit freigegebenen Schemaspalten. Konkrete CSV-Konventionen, Quellschlüssel und Druckvorlage werden vor dem Dateiaustausch geprüft.

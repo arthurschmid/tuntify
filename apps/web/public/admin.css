@@ -1,0 +1,41 @@
+:root {
+    font: 100%/1.5 system-ui, sans-serif;
+    color: #24192a;
+    background: #f7f4f8;
+    --ink: #35203e;
+    --accent: #6c2c67;
+    --line: #dcd5df;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+a { color: var(--accent); }
+h1, h2 { line-height: 1.15; overflow-wrap: anywhere; }
+h1 { font-size: clamp(2rem, 5vw, 3rem); margin: .65em 0 .7em; }
+h2 { font-size: 1.2rem; margin: 0 0 1rem; }
+.shell { width: min(100% - 2rem, 68rem); margin-inline: auto; }
+.topbar { color: white; background: var(--ink); }
+.topbar-inner { display: flex; justify-content: space-between; align-items: center; min-height: 4.25rem; }
+.brand { color: white; text-decoration: none; font-weight: 750; font-size: 1.3rem; }
+.content { padding-block: 1.5rem 3rem; }
+.workspace { display: grid; gap: 1rem; align-items: start; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
+.panel { background: #fff; border: 1px solid var(--line); border-radius: .75rem; padding: clamp(1rem, 3vw, 1.5rem); }
+.stack { display: grid; gap: .75rem; }
+.inline { display: flex; gap: .5rem; }
+.fields { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); }
+label { display: grid; gap: .35rem; font-weight: 650; }
+.check { display: flex; align-items: center; gap: .55rem; font-weight: 500; }
+input, select, button { font: inherit; }
+input:not([type=checkbox]), select { width: 100%; min-width: 0; padding: .58rem .65rem; border: 1px solid #a89aac; border-radius: .35rem; background: white; color: inherit; }
+button { justify-self: start; padding: .55rem .9rem; border: 1px solid var(--accent); border-radius: .35rem; background: var(--accent); color: white; font-weight: 650; cursor: pointer; }
+button.secondary { color: var(--ink); background: white; border-color: var(--line); }
+:focus-visible { outline: 3px solid #90538e; outline-offset: 3px; }
+table { width: 100%; border-collapse: collapse; margin-top: 1rem; table-layout: fixed; }
+th, td { padding: .65rem .3rem; border-bottom: 1px solid var(--line); text-align: left; overflow-wrap: anywhere; }
+.pagination { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 1rem; }
+.notice { padding: .7rem 1rem; border-radius: .35rem; background: #e5f3e9; }
+.notice.error { background: #f9e7e9; color: #781e31; }
+.notice ul { margin: 0; padding-inline-start: 1.25rem; }
+.login { max-width: 28rem; }
+@media (max-width: 45rem) {
+    .workspace { grid-template-columns: 1fr; }
+}
