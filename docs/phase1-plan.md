@@ -19,8 +19,8 @@ Phase 1 ermöglicht die Verwaltung von USER, aktuellen Kontaktdaten, vergangenen
 | Meilenstein | Aufgaben und Stand |
 | --- | --- |
 | Design | P1DESIGN, P1REVIEW, P1ROLES, P1FORMAT, P1FIELDS und P1USER dokumentieren das freigegebene Datenmodell. |
-| Fundament | APPBASE stellt das Laravel-13-Grundgerüst. MIGRATIONS ist umgesetzt und auf MariaDB 11.8 einschließlich Rollback und erneuter Migration geprüft. AUTH stellt Anmeldung, 30-Tage-Option und Adminprüfung bereit. I18N folgt. |
-| Verwaltung | USERUI stellt Personenliste, Suche, Anlage und Kontaktpflege bereit. EVENTUI, PARTUI und FIRSTATT folgen. |
+| Fundament | APPBASE stellt das Laravel-13-Grundgerüst. MIGRATIONS ist umgesetzt und auf MariaDB 11.8 einschließlich Rollback und erneuter Migration geprüft. AUTH stellt Anmeldung, 30-Tage-Option und Adminprüfung bereit. GRIDTOOLS ergänzt in der Personenübersicht den letzten Login sowie Sperren, Entsperren und Passwortsetzen für andere eingerichtete Konten. I18N folgt. |
+| Verwaltung | USERUI stellt Personenliste, Suche, Anlage und Kontaktpflege bereit. USERGRID ergänzt Inline-Bearbeitung, Sortierung und Filter pro Spalte sowie den optionalen manuellen DSGVO-Prüfstand. EVENTUI, PARTUI und FIRSTATT folgen. |
 | Übernahme | IMPORTER und POSTEXPORT sind geplant. |
 | Betriebsreife | DEPLOY, BACKUP, TESTS und ACCEPT sind geplant. |
 

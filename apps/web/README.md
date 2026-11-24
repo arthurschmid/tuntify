@@ -35,4 +35,6 @@ php artisan tuntify:first-admin
 
 Der Befehl fragt Shortname, Login-E-Mail und Passwort ab. Das Passwort wird verdeckt eingegeben. Danach ist der Login unter `/admin/login` verfügbar. „Angemeldet bleiben“ verwendet einen 30 Tage gültigen Laravel-Cookie. „Abmelden“ beendet die Sitzung und widerruft den Remember-Token. Auf einem HTTPS-Zielserver `SESSION_SECURE_COOKIE=true` setzen.
 
-Nach dem Login öffnet `/admin` die Personenverwaltung. Die Suche filtert nach Shortname oder Alias. Für neue Personen genügt ein Shortname. Die Bearbeitungsansicht enthält die Persona-Felder, Briefsprache und den aktuellen Kontaktstand.
+Nach dem Login öffnet `/admin` die Personenverwaltung. Die Suche filtert nach Shortname oder Alias. Die Tabelle erlaubt Sortieren und Filtern je Spalte sowie das Speichern je Zeile. Der optionale DSGVO-Status dokumentiert den manuell erfassten Prüfstand. Für neue Personen genügt ein Shortname. Die Bearbeitungsansicht enthält die Persona-Felder, Briefsprache und den aktuellen Kontaktstand.
+
+Am rechten Tabellenende stehen letzter Passwort-Login (UTC), DSGVO-Prüfstand und Kontowerkzeuge. Ein Administrator kann andere eingerichtete Logins sperren, entsperren und nach Bestätigung seines eigenen Passworts ein neues Passwort setzen. Sperren und Passwortwechsel widerrufen frühere Sitzungen.

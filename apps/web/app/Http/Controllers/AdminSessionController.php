@@ -42,6 +42,9 @@ class AdminSessionController extends Controller
 
         RateLimiter::clear($key);
         $request->session()->regenerate();
+        $user = $guard->user();
+        $user->forceFill(['last_login_at' => now()])->save();
+        $request->session()->put('admin_auth_version', $user->auth_version);
 
         return redirect()->intended(route('admin.home'));
     }

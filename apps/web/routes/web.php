@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminAccountController;
 use App\Http\Controllers\AdminSessionController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Middleware\EnsureAdmin;
@@ -23,5 +24,8 @@ Route::prefix('admin')->middleware(['auth', 'auth.session', EnsureAdmin::class])
     Route::get('/users', [AdminUserController::class, 'index'])->name('admin.users.index');
     Route::post('/users', [AdminUserController::class, 'store'])->name('admin.users.store');
     Route::get('/users/{user}/edit', [AdminUserController::class, 'edit'])->name('admin.users.edit');
+    Route::get('/users/{user}/password', [AdminAccountController::class, 'editPassword'])->name('admin.users.password.edit');
+    Route::put('/users/{user}/password', [AdminAccountController::class, 'resetPassword'])->middleware('throttle:10,1')->name('admin.users.password.update');
+    Route::patch('/users/{user}/lock', [AdminAccountController::class, 'updateLock'])->name('admin.users.lock');
     Route::patch('/users/{user}', [AdminUserController::class, 'update'])->name('admin.users.update');
 });

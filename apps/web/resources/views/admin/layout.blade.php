@@ -7,7 +7,7 @@
     <title>@yield('title') · Tuntify</title>
     <link rel="stylesheet" href="{{ asset('admin.css') }}">
 </head>
-<body>
+<body class="@yield('body-class')">
     <header class="topbar">
         <div class="shell topbar-inner">
             <a class="brand" href="{{ route('admin.home') }}">Tuntify</a>

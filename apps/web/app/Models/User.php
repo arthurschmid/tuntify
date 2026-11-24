@@ -11,8 +11,8 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-#[Fillable(['shortname', 'salutation', 'alias_given_name', 'alias_family_name', 'preferred_locale', 'postal_locale'])]
-#[Hidden(['password_hash', 'remember_token', 'two_factor_secret', 'two_factor_recovery_codes'])]
+#[Fillable(['shortname', 'salutation', 'alias_given_name', 'alias_family_name', 'preferred_locale', 'postal_locale', 'privacy_status'])]
+#[Hidden(['password_hash', 'remember_token', 'two_factor_secret', 'two_factor_recovery_codes', 'auth_version'])]
 class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
@@ -51,6 +51,7 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password_hash' => 'hashed',
             'disabled_at' => 'datetime',
+            'last_login_at' => 'datetime',
         ];
     }
 }

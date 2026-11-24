@@ -16,7 +16,7 @@ erDiagram
 
 | Tabelle | Felder und Regeln |
 | --- | --- |
-| `users` | Interne unveränderliche BIGINT-`id`, eindeutiger `shortname`, optionale `preferred_locale` und `postal_locale`, Zeitstempel für Erstellung und Änderung. Optionale Persona-Felder `salutation`, `alias_given_name`, `alias_family_name`. Optionale Anmeldefelder `login_email` (normalisiert und eindeutig), `password_hash`, `email_verified_at`, `disabled_at` und geschützte Felder für Zwei-Faktor-Authentifizierung und Wiederherstellung. |
+| `users` | Interne unveränderliche BIGINT-`id`, eindeutiger `shortname`, optionale `preferred_locale`, `postal_locale` und `privacy_status`, Zeitstempel für Erstellung und Änderung. Optionale Persona-Felder `salutation`, `alias_given_name`, `alias_family_name`. Optionale Anmeldefelder `login_email` (normalisiert und eindeutig), `password_hash`, `email_verified_at`, `disabled_at`, `last_login_at` und geschützte Felder für Zwei-Faktor-Authentifizierung und Wiederherstellung. |
 | `roles` | `id` und eindeutiger Rollencode `code`, zunächst `admin`. |
 | `user_roles` | FKs `user_id` und `role_id` als gemeinsamer Primärschlüssel. |
 | `user_contacts` | `user_id` als PK/FK. Optionale `legal_given_name`, `legal_family_name`, `contact_email`, `phone`, `contact_verified_on DATE`, `line_1`, `line_2`, `postal_code` (Text), `city`, `additional_line`, `country_code`, `allow_alias_for_post` (nullable BOOL). Höchstens ein aktueller Stand, Änderungen ersetzen die bisherigen Werte. |
@@ -52,3 +52,7 @@ Der Import umfasst Personen und Kontaktdaten. Vergangene Ereignisse und Zuordnun
 | Latitude, Longitude | Wohnkoordinaten bleiben bis zur Zweckentscheidung in der geschützten Quelle. |
 
 Importvorschau mit Konflikten, Zeilenzahlen und Validierung. Shortname dient als Abgleichkandidat. Bei vorhandener stabiler Quellkennung dient diese dem Wiederabgleich. Andernfalls absichern über Dateifingerabdruck, bestätigten Abgleich und protokollierte Entscheidungen. Änderungen transaktional anwenden. Der Postexport verwendet freigegebene DB-Spalten. `allow_alias_for_post` entscheidet über die Namensform. Bei fehlender Namensform, ungeklärter Post-Option oder unvollständiger Anschrift meldet die Oberfläche Prüfbedarf.
+
+Der optionale `privacy_status` dokumentiert den manuellen Prüfstand (`pending`, `reviewed`, `follow_up`; `NULL` bei fehlender Angabe). Er bildet weder eine Einwilligung noch eine Rechtsgrundlage ab.
+
+`last_login_at` speichert den letzten erfolgreichen Passwort-Login in UTC. Der technische Wert `auth_version` ermöglicht den Widerruf bestehender Adminsitzungen nach Kontosperre oder Passwortwechsel.

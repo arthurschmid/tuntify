@@ -39,3 +39,65 @@ th, td { padding: .65rem .3rem; border-bottom: 1px solid var(--line); text-align
 @media (max-width: 45rem) {
     .workspace { grid-template-columns: 1fr; }
 }
+.people-page { font-size: .8125rem; line-height: 1.35; }
+.people-page .shell { width: calc(100% - 1.5rem); }
+.people-page .topbar-inner { min-height: 2.75rem; }
+.people-page .brand { font-size: 1rem; }
+.people-page .content { padding-block: .65rem 1rem; }
+.people-page .notice { margin: .35rem 0; padding: .35rem .6rem; }
+.people-heading { display: flex; align-items: baseline; gap: .6rem; margin-bottom: .5rem; }
+.people-heading h1 { font-size: 1.375rem; margin: 0; }
+.people-heading span, #grid-help { color: #5c5061; }
+.grid-toolbar { display: flex; flex-wrap: wrap; gap: .4rem 1rem; padding: .45rem .6rem; }
+.grid-toolbar form { flex: 0 1 23rem; min-width: 0; }
+.grid-toolbar label { margin-bottom: .15rem; }
+.grid-toolbar .inline { align-items: center; gap: .35rem; }
+.grid-reset { white-space: nowrap; }
+.people-page input:not([type=checkbox]), .people-page select, .people-page button { padding: .23rem .38rem; }
+.people-page button { white-space: nowrap; }
+#grid-help { margin: .4rem 0; }
+.grid-scroll { overflow: auto; max-height: max(40vh, calc(100dvh - 13rem)); margin-bottom: .35rem; padding: 0; }
+.people-grid { --action-width: 5rem; width: max-content; min-width: 100%; table-layout: auto; margin: 0; }
+.people-grid :is(th, td) { min-width: 8rem; padding: .2rem .35rem; }
+.people-grid th { white-space: nowrap; }
+.people-grid thead { position: sticky; top: 0; z-index: 2; background: #f7f4f8; }
+.people-grid .row-actions { width: var(--action-width); min-width: var(--action-width); white-space: nowrap; position: sticky; left: 0; z-index: 1; background: #f7f4f8; }
+.people-grid .row-actions form { display: inline-block; }
+.people-grid .row-actions a { margin-inline-start: .25rem; }
+.people-grid .shortname-column { position: sticky; left: var(--action-width); z-index: 1; background: #f7f4f8; }
+.people-grid tbody tr:nth-child(even) td:not(.row-actions, .shortname-column) { background: #faf8fb; }
+.people-page .pagination { margin-top: .4rem; }
+@media (max-width: 40rem) {
+    .people-page .shell { width: calc(100% - 1rem); }
+    .people-page input:not([type=checkbox]), .people-page select, .people-page button { min-height: 2rem; }
+    .grid-toolbar form { flex-basis: 100%; }
+    .people-grid .shortname-column { position: static; }
+}
+.people-grid :is(input:not([type=checkbox]), select) {
+    border: 1px solid transparent;
+    border-radius: .2rem;
+    background-color: transparent;
+}
+.people-grid thead :is(input, select) { border-bottom-color: #c8bdca; }
+.people-grid :is(input:not([type=checkbox]), select):is(:hover, :focus) {
+    background-color: #fff;
+    border-color: #a89aac;
+}
+.people-grid .account-tools { min-width: 8rem; white-space: nowrap; }
+.people-grid .account-tools form { display: inline-block; }
+.people-grid .icon-button {
+    display: inline-grid;
+    place-items: center;
+    width: 1.65rem;
+    min-height: 1.65rem;
+    padding: 0;
+    margin: 0;
+    border: 1px solid transparent;
+    border-radius: .2rem;
+    background: transparent;
+    color: var(--ink);
+    vertical-align: middle;
+}
+.people-grid .icon-button:hover { border-color: var(--line); background: #fff; color: var(--accent); }
+.people-grid .row-actions a.icon-button { margin-inline-start: 0; }
+.unavailable-tools { color: #5c5061; }
